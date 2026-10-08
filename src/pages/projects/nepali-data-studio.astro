@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Nepali Data Studio | DoAI × ILPRL Project"
+  description="A provenance-first open data platform for Nepali and Nepal-based languages: sourcing, curation, annotation, and release for LLM development."
+  activeTab="projects"
+>
+  <div class="detail-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Home</a> <span>/</span> <a href="/projects">Projects</a> <span>/</span> <span>Nepali Data Studio</span>
+      </div>
+      <div class="project-badges" style="margin-bottom: 0.5rem;">
+        <span class="badge badge-active">Active Project</span>
+        <span class="badge badge-category">Corpus Engineering & Platform</span>
+      </div>
+      <h1 class="detail-title">Nepali Data Studio (नेपाली डाटा स्टुडियो)</h1>
+      <p class="detail-subtitle">
+        A Provenance-First Open Data Platform for Nepali & Nepal-Based Languages: Sourcing, Curation, Annotation, Instruction Data, and Release for LLM Development.
+      </p>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="detail-grid">
+      <!-- Main Content -->
+      <div class="detail-main">
+        <div class="detail-section">
+          <h2>1. Executive Summary & Problem Context</h2>
+          <p>
+            Nepali is spoken by tens of millions of people worldwide but remains severely low-resource in the modern LLM era (reporting only ~4.18B public tokens, over 80× fewer than English). Existing Devanagari text in large multilingual web scrapes (such as FineWeb-2, Sangraha, and IndicCorp) suffers from <strong>silent Hindi leakage, broken legacy fonts (Preeti/Kantipur), high duplication rates, and severed provenance</strong>.
+          </p>
+          <p>
+            Once scraped text is merged into a flat file, its original publisher, license, crawl date, and annotator identity disappear. <strong>Nepali Data Studio (NDS)</strong> is an all-in-one data operating system built on <strong>Datasette and SQLite</strong> that tracks the full life of Nepali data with 100% auditable lineage.
+          </p>
+          <div class="callout">
+            <strong>Core Principle:</strong> Every single training example retains parentage from source to raw file, document, sentence, annotation, and instruction release.
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <h2>2. The 6-Database Architecture</h2>
+          <p>
+            NDS avoids fragile infrastructure by running on SQLite with Write-Ahead Logging (WAL) and Litestream replication. Data is partitioned into six purpose-built databases:
+          </p>
+          <ul style="padding-left: 1.25rem; color: var(--color-text-muted); line-height: 1.8;">
+            <li><strong><code>registry.db</code>:</strong> Sources, licenses, crawl policies, and external dataset aliases (linking past KU research papers and Hugging Face benchmarks).</li>
+            <li><strong><code>raw.db</code>:</strong> Untouchable vault of immutable, SHA-256 hashed HTML, PDF, image, and audio files.</li>
+            <li><strong><code>corpus.db</code>:</strong> Normalized (NFC, Preeti-converted) text, Devanagari sentences, tokens (MPP 43 & UPOS), and gazetteers.</li>
+            <li><strong><code>annotation.db</code>:</strong> Standoff annotation workbench, multi-rater votes, and gold adjudications.</li>
+            <li><strong><code>instruct.db</code>:</strong> Prompt templates, instruction-response pairs, and DPO/RLHF preference pairs.</li>
+            <li><strong><code>release.db</code> & <code>admin.db</code>:</strong> Release snapshots, Croissant-RAI metadata, contributor credit ledgers, and audit logs.</li>
+          </ul>
+        </div>
+
+        <div class="detail-section">
+          <h2>3. Annotation Hub & Plugin Manifests</h2>
+          <p>
+            Instead of building custom software for every task, NDS tasks are specified as <strong>declarative YAML manifests + JSON Schemas</strong>.
+          </p>
+          <p>
+            <strong>Core P0 Tasks:</strong> 10-class Named Entity Recognition (NER), Part-of-Speech tagging (MPP 43 tagset), Spelling & Grammar Error Correction (GEC), Question Answering (QA), and Gemma/T5 chat instruction pairs.
+          </p>
+          <div class="callout">
+            <strong>Perspectivism:</strong> Multi-annotator disagreements are never discarded. They are preserved for linguistic analysis, and AI suggestions are strictly marked as <code>origin = machine</code> and never auto-promoted to Gold.
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="detail-sidebar">
+        <div class="sidebar-box">
+          <h3>Project Metadata</h3>
+          <ul class="sidebar-list">
+            <li>
+              <strong>Candidate / Student</strong>
+              Sundeep Dawadi (Dept. of AI, KU)
+            </li>
+            <li>
+              <strong>Academic Supervisor</strong>
+              Mr. Sunil Regmi (Lecturer & Coordinator, DoAI)
+            </li>
+            <li>
+              <strong>Mentor & Domain Lead</strong>
+              Prof. Dr. Bal Krishna Bal (Dean, SoE & Lead, ILPRL)
+            </li>
+            <li>
+              <strong>Duration & Phase</strong>
+              12 Weeks (Phase 1 Platform Deliverable)
+            </li>
+            <li>
+              <strong>Core Technology</strong>
+              Datasette (1.0 alpha series), SQLite (WAL), Litestream
+            </li>
+            <li>
+              <strong>Open Deliverable</strong>
+              GitHub: <code>ILPRL/NepaliDataStudio</code>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>Resources & Links</h3>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <a
+              href="https://github.com/ILPRL/NepaliDataStudio"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="justify-content: center;"
+            >
+              GitHub Repository ↗
+            </a>
+            <a
+              href="/projects"
+              class="btn btn-secondary"
+              style="justify-content: center;"
+            >
+              ← Back to All Projects
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</Layout>

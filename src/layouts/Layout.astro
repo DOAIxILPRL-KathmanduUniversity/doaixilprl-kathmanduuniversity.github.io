@@ -1,0 +1,86 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  activeTab?: 'home' | 'projects' | 'about';
+}
+
+const {
+  title = 'DoAI × ILPRL | Kathmandu University NLP Research & Internship Index',
+  description = 'Department of Artificial Intelligence (DoAI) and Information and Language Processing Research Lab (ILPRL) joint NLP research and capstone internships at Kathmandu University.',
+  activeTab = 'home',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/ku-logo.png" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/ku-logo.png" />
+  </head>
+  <body>
+    <!-- Universal Header -->
+    <header>
+      <div class="container nav-bar">
+        <a href="/" class="brand">
+          <img src="/ku-logo.png" alt="Kathmandu University Seal" class="brand-logo" />
+          <div class="brand-text">
+            <span class="brand-title">DoAI × ILPRL</span>
+            <span class="brand-subtitle">Kathmandu University</span>
+          </div>
+        </a>
+        <nav>
+          <ul class="nav-links">
+            <li>
+              <a href="/" class={activeTab === 'home' ? 'active' : ''}>Home</a>
+            </li>
+            <li>
+              <a href="/projects" class={activeTab === 'projects' ? 'active' : ''}>Projects Index</a>
+            </li>
+            <li>
+              <a href="/about" class={activeTab === 'about' ? 'active' : ''}>About & Mentors</a>
+            </li>
+            <li>
+              <a href="https://github.com/DOAIxILPRL-KathmanduUniversity" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Slot for Page Content -->
+    <slot />
+
+    <!-- Universal Footer -->
+    <footer>
+      <div class="container footer-content">
+        <div>
+          <strong>DoAI × ILPRL Joint Initiative</strong><br />
+          <span style="font-size: 0.82rem; color: var(--color-text-light);">
+            Department of Artificial Intelligence & Information and Language Processing Research Lab
+          </span><br />
+          <span style="font-size: 0.8rem; color: var(--color-text-light);">
+            Kathmandu University, Dhulikhel, Kavre, Nepal
+          </span>
+        </div>
+        <div>
+          <ul class="footer-links">
+            <li><a href="http://doai.ku.edu.np/" target="_blank" rel="noopener noreferrer">DoAI Portal ↗</a></li>
+            <li><a href="https://ilprl.ku.edu.np/" target="_blank" rel="noopener noreferrer">ILPRL Portal ↗</a></li>
+            <li><a href="/projects">Internship Index</a></li>
+            <li><a href="https://ku.edu.np" target="_blank" rel="noopener noreferrer">KU Home ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

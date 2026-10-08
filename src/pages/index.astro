@@ -1,0 +1,207 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { projects } from '../data/projects';
+
+const featuredProjects = projects.filter((p) => p.featured);
+---
+
+<Layout
+  title="DoAI × ILPRL | Kathmandu University NLP Internship Index"
+  description="Collaborative NLP research and capstone internships between DoAI and ILPRL at Kathmandu University, mentored by Sunil Regmi and Prof. Dr. Bal Krishna Bal."
+  activeTab="home"
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Kathmandu University • NLP Research Initiative</div>
+      <h1>
+        DoAI × ILPRL <br />
+        <span class="gradient-text">NLP Research & Internship Index</span>
+      </h1>
+      <p class="hero-description">
+        A dedicated collaborative platform indexing natural language processing capstone internships, corpus engineering tools, and foundation model benchmarks at <strong>Kathmandu University</strong>. Jointly steered by the <strong>Department of Artificial Intelligence (DoAI)</strong> and the <strong>Information and Language Processing Research Lab (ILPRL)</strong>.
+      </p>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- Academic Leadership & Mentorship -->
+    <section id="mentors">
+      <div class="section-header">
+        <h2 class="section-title">Academic Mentorship & Guidance</h2>
+        <p class="section-subtitle">
+          Guiding student researchers to solve low-resource NLP challenges through principled engineering and linguistic rigor.
+        </p>
+      </div>
+
+      <div class="leadership-grid">
+        <!-- Sunil Regmi -->
+        <div class="mentor-card">
+          <div class="mentor-top">
+            <div class="mentor-avatar">
+              <img
+                src="/sunil-regmi.png"
+                alt="Mr. Sunil Regmi - DoAI, Kathmandu University"
+                class="mentor-avatar-img"
+              />
+            </div>
+            <div class="mentor-info">
+              <h3>Mr. Sunil Regmi</h3>
+              <span class="mentor-role">Dept. of Artificial Intelligence (DoAI)</span>
+              <a
+                href="http://doai.ku.edu.np/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mentor-dept-link"
+              >
+                doai.ku.edu.np ↗
+              </a>
+            </div>
+          </div>
+          <p class="mentor-desc">
+            Lecturer & Bachelor Program Coordinator at the Department of Artificial Intelligence, School of Engineering, Kathmandu University. Guides capstone cohorts on curriculum integration, machine learning pipelines, and modern AI engineering standards.
+          </p>
+        </div>
+
+        <!-- Bal Krishna Bal -->
+        <div class="mentor-card">
+          <div class="mentor-top">
+            <div class="mentor-avatar">
+              <img
+                src="/bal-krishna-bal.png"
+                alt="Prof. Dr. Bal Krishna Bal - ILPRL & Dean, SoE, Kathmandu University"
+                class="mentor-avatar-img"
+              />
+            </div>
+            <div class="mentor-info">
+              <h3>Prof. Dr. Bal Krishna Bal</h3>
+              <span class="mentor-role">ILPRL & Dean, School of Engineering</span>
+              <a
+                href="https://ilprl.ku.edu.np/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mentor-dept-link"
+              >
+                ilprl.ku.edu.np ↗
+              </a>
+            </div>
+          </div>
+          <p class="mentor-desc">
+            Professor of Computer Engineering, Dean of the School of Engineering, and Founding Lead of ILPRL. Pioneered computational linguistics, Devanagari OCR, and Nepali corpus archival for over two decades.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core NLP Focus Areas -->
+    <section id="focus">
+      <div class="section-header">
+        <h2 class="section-title">Core Research Focus: Natural Language Processing</h2>
+        <p class="section-subtitle">
+          Dedicated exclusively to solving foundational NLP bottlenecks for Nepali and Nepal-based languages.
+        </p>
+      </div>
+
+      <div class="focus-grid">
+        <div class="focus-card">
+          <div class="focus-icon">📚</div>
+          <h4>Corpus Curation & Provenance</h4>
+          <p>Scraping, deduplicating, and gating clean Nepali corpora while maintaining full parentage to original sources and licenses.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">🏷️</div>
+          <h4>Annotation & Task Hubs</h4>
+          <p>Ergonomic web-based annotation queues for native speakers covering NER, POS tagging, spelling correction, and instruction pairs.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">⚖️</div>
+          <h4>Benchmarking & Evaluation</h4>
+          <p>Standardized empirical test suites (BalEval) to evaluate LLM reasoning, multimodal retrieval, and instruction fidelity.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">🎙️</div>
+          <h4>Speech & Document AI</h4>
+          <p>Acoustic speech models (ASR), dialect archiving, and Devanagari layout analysis with legacy Preeti font restoration.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="featured-projects">
+      <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 0.5rem;">
+        <div>
+          <h2 class="section-title">Featured Capstone Projects</h2>
+          <p class="section-subtitle">Active and milestone research initiatives in the lab.</p>
+        </div>
+        <a href="/projects" class="btn btn-secondary">View All Projects ({projects.length}) →</a>
+      </div>
+
+      <div class="project-list">
+        {featuredProjects.map((proj) => (
+          <article class="project-card">
+            <div class="project-top">
+              <div>
+                <h3 class="project-title">
+                  <a href={proj.links?.find((l) => l.internal)?.url || `/projects#${proj.slug}`}>
+                    {proj.title}
+                  </a>
+                </h3>
+                <div class="project-subtitle">{proj.subtitle}</div>
+              </div>
+              <div class="project-badges">
+                <span
+                  class={`badge ${
+                    proj.status === 'Active'
+                      ? 'badge-active'
+                      : proj.status === 'In Progress'
+                      ? 'badge-progress'
+                      : 'badge-planned'
+                  }`}
+                >
+                  {proj.status}
+                </span>
+                <span class="badge badge-category">{proj.category}</span>
+              </div>
+            </div>
+
+            <div class="project-meta">
+              {proj.candidate && (
+                <span><strong>Candidate:</strong> {proj.candidate}</span>
+              )}
+              <span><strong>Timeline:</strong> {proj.timeline}</span>
+              <span><strong>Mentors:</strong> {proj.mentors.join('; ')}</span>
+            </div>
+
+            <p class="project-desc">{proj.abstract}</p>
+
+            <div class="project-footer">
+              <div class="project-badges">
+                {proj.tags.map((t) => (
+                  <span class="badge" style="background: #f1f5f9; color: var(--color-text-muted);">
+                    #{t}
+                  </span>
+                ))}
+              </div>
+
+              <div class="project-links">
+                {proj.links?.map((link) => (
+                  <a
+                    href={link.url}
+                    class={`btn ${link.internal ? 'btn-primary' : 'btn-secondary'}`}
+                    target={link.internal ? undefined : '_blank'}
+                    rel={link.internal ? undefined : 'noopener noreferrer'}
+                  >
+                    {link.label} {link.internal ? '→' : '↗'}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

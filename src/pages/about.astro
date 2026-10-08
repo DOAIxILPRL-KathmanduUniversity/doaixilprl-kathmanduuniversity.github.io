@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="About & Mentorship | DoAI × ILPRL Kathmandu University"
+  description="Learn about the joint NLP initiative between the Department of Artificial Intelligence (DoAI) and ILPRL at Kathmandu University."
+  activeTab="about"
+>
+  <div class="detail-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Home</a> <span>/</span> <span>About & Mentorship</span>
+      </div>
+      <h1 class="detail-title">About DoAI × ILPRL Collaboration</h1>
+      <p class="detail-subtitle">
+        Bridging undergraduate artificial intelligence engineering with twenty-two years of pioneering computational linguistics research at Kathmandu University.
+      </p>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 3.5rem;">
+    <!-- Lab Background -->
+    <div class="detail-section" style="margin-bottom: 2rem;">
+      <h2>Institutional Background</h2>
+      <p>
+        The <strong>Department of Artificial Intelligence (DoAI)</strong> and the <strong>Information and Language Processing Research Lab (ILPRL)</strong> collaborate at the School of Engineering, Kathmandu University, to address one of the most critical challenges facing technology in Nepal: <strong>the representation, preservation, and computational utility of Nepali and Nepal-based languages in modern Artificial Intelligence.</strong>
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        <div style="background: #f8fafc; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+          <h3 style="font-size: 1.05rem; color: var(--color-ku-blue); margin-bottom: 0.4rem;">
+            Department of AI (DoAI)
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">
+            Offering Nepal's first B.Tech in Artificial Intelligence, focusing on modern deep learning architectures, multimodal AI, data engineering, and ethical AI deployment.
+          </p>
+          <a href="http://doai.ku.edu.np/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.8rem;">
+            Visit doai.ku.edu.np ↗
+          </a>
+        </div>
+
+        <div style="background: #f8fafc; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+          <h3 style="font-size: 1.05rem; color: var(--color-ku-blue); margin-bottom: 0.4rem;">
+            ILPRL (Established 2004)
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">
+            Pioneered Nepali Natural Language Processing, Devanagari OCR, Nepali morphological analyzers, the MPP 43-POS tagset, and electronic lexicon archives.
+          </p>
+          <a href="https://ilprl.ku.edu.np/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.8rem;">
+            Visit ilprl.ku.edu.np ↗
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mentorship Biographies -->
+    <div class="detail-section" style="margin-bottom: 2rem;">
+      <h2>Faculty Mentorship & Direction</h2>
+      <p>
+        The capstone internships indexed on this platform are conceived, steered, and reviewed under the joint academic guidance of faculty leadership:
+      </p>
+
+      <div class="leadership-grid" style="margin-top: 1.5rem;">
+        <!-- Sunil Regmi -->
+        <div class="mentor-card">
+          <div class="mentor-top">
+            <div class="mentor-avatar" style="width: 76px; height: 76px;">
+              <img
+                src="/sunil-regmi.png"
+                alt="Mr. Sunil Regmi"
+                class="mentor-avatar-img"
+              />
+            </div>
+            <div class="mentor-info">
+              <h3 style="font-size: 1.2rem;">Mr. Sunil Regmi</h3>
+              <span class="mentor-role">Department of Artificial Intelligence (DoAI)</span>
+              <a
+                href="http://doai.ku.edu.np/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mentor-dept-link"
+              >
+                doai.ku.edu.np ↗
+              </a>
+            </div>
+          </div>
+          <p class="mentor-desc">
+            Mr. Sunil Regmi serves as Lecturer and Bachelor Program Coordinator at the Department of Artificial Intelligence, Kathmandu University. He coordinates undergraduate AI capstone research, ensuring that student implementations satisfy rigorous AI engineering specifications, scalable architecture design, and academic accreditation standards.
+          </p>
+        </div>
+
+        <!-- Bal Krishna Bal -->
+        <div class="mentor-card">
+          <div class="mentor-top">
+            <div class="mentor-avatar" style="width: 76px; height: 76px;">
+              <img
+                src="/bal-krishna-bal.png"
+                alt="Prof. Dr. Bal Krishna Bal"
+                class="mentor-avatar-img"
+              />
+            </div>
+            <div class="mentor-info">
+              <h3 style="font-size: 1.2rem;">Prof. Dr. Bal Krishna Bal</h3>
+              <span class="mentor-role">Dean, School of Engineering & Founding Lead, ILPRL</span>
+              <a
+                href="https://ilprl.ku.edu.np/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mentor-dept-link"
+              >
+                ilprl.ku.edu.np ↗
+              </a>
+            </div>
+          </div>
+          <p class="mentor-desc">
+            Prof. Dr. Bal Krishna Bal is Professor of Computer Engineering, Dean of the School of Engineering, and the Founding Lead of the Information and Language Processing Research Lab (ILPRL) at Kathmandu University. A pioneer in low-resource computational linguistics, he has led foundational research in Devanagari OCR, Nepali WordNet, machine translation, and language resource standardization for over two decades.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guiding Research Pillars -->
+    <div class="detail-section">
+      <h2>Guiding Principles for Student Research</h2>
+      <ul style="padding-left: 1.25rem; color: var(--color-text-muted); line-height: 1.8;">
+        <li><strong>Strict Low-Resource NLP Focus:</strong> Projects must directly address linguistic, data, or modeling barriers in Nepali or Nepal-based languages.</li>
+        <li><strong>Auditability & Provenance:</strong> Datasets must preserve complete origin, license, and annotator lineages rather than producing opaque web scrapings.</li>
+        <li><strong>Public Deliverables:</strong> All verified software tools, datasets, and benchmark cards are made available open-source on GitHub and Hugging Face under permissive academic licensing.</li>
+      </ul>
+    </div>
+  </main>
+</Layout>
